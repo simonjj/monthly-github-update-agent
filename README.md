@@ -121,3 +121,9 @@ The agent checks for an exact issue title before creating anything. It unpins
 only older pinned `ANNOUNCEMENT` issues whose titles end in `Updates`, leaves
 unrelated pinned notices alone, creates the new issue, pins it, and reads it
 back before reporting success.
+
+Research is gated on a broad-search checklist. Each run performs at least 12
+distinct searches across Microsoft sources, general web results, community
+blogs and videos, public GitHub projects, and feature-specific follow-ups. The
+agent records the queries, opened canonical pages, and exclusion reasons in
+private research notes before it can draft the issue.

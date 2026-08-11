@@ -7,11 +7,43 @@ This is an unattended production run. Do not ask questions. Read and follow:
 - `.github/skills/anti-ai-writing/SKILL.md`
 
 Use public web and GitHub sources only. Verify every included item's original
-publication date against the exact target-month date range. Search broadly, open
-the canonical source for every candidate, and reject ambiguous dates, duplicates,
-generic Azure/container content, and material where Azure Container Apps is only
-incidental. Keep private research notes in `/tmp/aca-monthly-research.md`; never
-put those notes in the issue.
+publication date against the exact target-month date range. Open the canonical
+source for every candidate, and reject ambiguous dates, duplicates, generic
+Azure/container content, and material where Azure Container Apps is only
+incidental.
+
+Broad discovery is a required completion gate, not optional guidance. Do not
+draft after checking only the ACA repository or known Microsoft pages. Use the
+available web-search tool. If it is unavailable, use public search pages, RSS
+feeds, site searches, and public APIs through the browser or shell.
+
+Before drafting, complete and record all of these search groups:
+
+1. General web searches for both `"Azure Container Apps" <Month> <Year>` and
+   `"ACA" "Container Apps" <Month> <Year>`, with variants for announcement,
+   tutorial, sample, video, conference, and blog.
+2. First-party site searches across Microsoft Tech Community, Developer Blogs,
+   Microsoft Learn, Azure Updates, Microsoft/Azure-Samples GitHub repositories,
+   Azure CLI and SDK release notes, and Microsoft video channels.
+3. Community searches across practitioner blogs, engineering blogs, DEV
+   Community, Medium, InfoQ, conference sites, podcasts, newsletters, YouTube,
+   and public GitHub repositories outside Microsoft.
+4. Feature-specific searches for any product terms found during research,
+   including Sandboxes, Dynamic Sessions, Express, Jobs, serverless GPU,
+   Functions on ACA, networking, ingress, Dapr, KEDA, OpenTelemetry, Java, and
+   security.
+
+Run at least 12 distinct discovery queries spanning every group. Open every
+plausible result at its original URL. For each promising topic, run at least one
+follow-up query using the feature name or author to find independent technical
+coverage. Continue until two consecutive query variations produce no new
+plausible candidates. A sparse final issue is acceptable; a narrow search is
+not.
+
+Keep private research notes in `/tmp/aca-monthly-research.md`. Include a search
+coverage section with the exact queries or site searches run, the search surface,
+plausible pages opened, and the inclusion or exclusion outcome. Never put these
+notes in the issue.
 
 Publish to `microsoft/azure-container-apps` as the authenticated `simonjj`
 account:
