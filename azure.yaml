@@ -1,0 +1,27 @@
+name: monthly-github-update-agent
+metadata:
+  template: monthly-github-update-agent@0.1.0
+
+infra:
+  provider: bicep
+  path: infra
+
+hooks:
+  preprovision:
+    windows:
+      shell: pwsh
+      run: ./scripts/preprovision.ps1
+      interactive: true
+    posix:
+      shell: sh
+      run: ./scripts/preprovision.sh
+      interactive: true
+  postprovision:
+    windows:
+      shell: pwsh
+      run: ./scripts/postprovision.ps1
+      interactive: true
+    posix:
+      shell: sh
+      run: ./scripts/postprovision.sh
+      interactive: true

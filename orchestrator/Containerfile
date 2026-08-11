@@ -1,0 +1,22 @@
+FROM ubuntu:24.04
+
+ARG ACA_CLI_RELEASE=aca-cli-v0.1.0-preview
+ARG ACA_CLI_SHA256=4dfd88851cfcbcf28eca7dd2e116e706538db189a3700572feb69e676422ed42
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates curl jq tar \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -fsSL \
+        -o /tmp/aca.tar.gz \
+        "https://github.com/microsoft/azure-container-apps/releases/download/${ACA_CLI_RELEASE}/${ACA_CLI_RELEASE}-linux-x64.tar.gz" \
+    && echo "${ACA_CLI_SHA256}  /tmp/aca.tar.gz" | sha256sum --check - \
+    && tar -xzf /tmp/aca.tar.gz -C /usr/local/bin \
+    && rm /tmp/aca.tar.gz \
+    && aca --version
+
+WORKDIR /app
+COPY orchestrator/run.sh /app/run.sh
+COPY sandbox-workspace /app/workspace
+RUN chmod +x /app/run.sh
+
+ENTRYPOINT ["/app/run.sh"]
